@@ -31,6 +31,9 @@ function getSdkLoaderScript(config: SdkLoaderConfig) {
     } else if (config.connectionString) {
         snippetConfig.cfg.connectionString = config.connectionString;
     }
+    if (config.cfg.sdkExtension) {
+        snippetConfig.cfg.sdkExtension = config.cfg.sdkExtension;
+    }
 
     let configString = JSON.stringify(snippetConfig);
     let userSnippet = `!(function (cfg){${originSnippet}})(\n${configString}\n);`;
